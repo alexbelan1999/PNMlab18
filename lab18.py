@@ -4,6 +4,9 @@ import numpy as np
 matrix = [[9, 11, 6],
           [-10, -14, -8],
           [3, 5.5, 3]]
+# matrix = [[-16, -100, -190],
+#           [96, 380, 704],
+#           [-48, -182, -336]]
 number = len(matrix)
 
 QQQ = []
@@ -21,6 +24,9 @@ print('Собственные значения')
 for i in range(0, number):
     print('lambda', (i + 1), ': ', A[i][i])
     lmd.append(A[i][i])
-for i in range(0,number):
-    A[i][i]= A[i][i] - lmd[2]
-print("Определитель:",np.linalg.det(A))
+for i in range(0, number):
+    A[i][i] = A[i][i] - lmd[i]
+print("A - lamda*E: ")
+for i in A:
+    print(i)
+print("Определитель:", np.linalg.det(A))

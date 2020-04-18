@@ -1,6 +1,7 @@
 import numpy as np
 import math
 
+
 def sumsquarediag(matrix):
     sumnum = 0
     for i in range(1, len(matrix)):
@@ -18,33 +19,6 @@ def newmatrix(matrix, i):
 
     return matrix
 
-def multmatrixnumber(a, A):
-    m = len(A)
-    n = len(A[0])
-    B = []
-    for i in range(0,m):
-        B.insert(i,[])
-        for j in range(0,n):
-            B[i].insert(j, a * A[i][j])
-    return B
-
-def multiplymatrix(A, B):
-    rowsA = len(A)
-    colsA = len(A[0])
-    rowsB = len(B)
-    colsB = len(B[0])
-    C = []
-    if (colsA != rowsB):
-        return False
-    for i in range(0, rowsA):
-        C.insert(i, [])
-    for k in range(0, colsB):
-        for i in range(0,rowsA):
-            t = 0
-            for j in range(0,rowsB):
-                t += A[i][j] * B[j][k]
-            C[i].insert(k,t)
-    return C
 
 def QRMethod(matrix, number, QQQ):
     B = matrix
@@ -89,8 +63,8 @@ def QRMethod(matrix, number, QQQ):
             print(i)
         WT = []
         for i in range(0, number):
-            WT.insert(i,W[i][0])
-        WT=[WT]
+            WT.insert(i, W[i][0])
+        WT = [WT]
         print('WT')
         print(WT)
         var = np.dot(W, WT)
@@ -114,7 +88,7 @@ def QRMethod(matrix, number, QQQ):
         print('H')
         for i in H:
             print(i)
-        resmultmatrix = multiplymatrix(H, resmultmatrix)
+        resmultmatrix = np.dot(H, resmultmatrix)
 
         resmultmatrix = newmatrix(resmultmatrix, f)
         print('A-№', f + 1)
